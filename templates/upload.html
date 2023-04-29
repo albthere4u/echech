@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+    <title>CSV 파일 업로드</title>
+</head>
+<body>
+    <h1>CSV 파일 업로드</h1>
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {{ form.csvfile.label }}: {{ form.csvfile }}
+        <input type="submit" value="Upload">
+    </form>
+    <!-- templates/upload.html -->
+
+{% if data %}
+    <table>
+        <tr>
+            <th>예측시간</th>
+            <th>온도(°C)</th>
+            <th>풍향(deg)</th>
+            <th>풍속(m/s)</th>
+            <th>강수량(mm)</th>
+            <th>기압(hPa)</th>
+            <th>습도(%)</th>
+            <th>토양온도(°C)</th>
+            <th>토양습도(%)</th>
+            <th>일사량(W/m^2)</th>
+        </tr>
+        {% for row in data %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+    {% if data_list %}
+    <table>
+        <thead>
+            <tr>
+                <th>예측시간</th>
+                <th>온도(°C)</th>
+                <th>풍향(deg)</th>
+                <th>풍속(m/s)</th>
+                <th>강수량(mm)</th>
+                <th>기압(hPa)</th>
+                <th>습도(%)</th>
+                <th>토양온도(°C)</th>
+                <th>토양습도(%)</th>
+                <th>일사량(W/m^2)</th>
+                <th>상태</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in data_list %}
+            <tr>
+                <td>{{ data.timestamp }}</td>
+                <td>{{ data.temperature }}</td>
+                <td>{{ data.wind_direction }}</td>
+                <td>{{ data.wind_speed }}</td>
+                <td>{{ data.rainfall }}</td>
+                <td>{{ data.pressure }}</td>
+                <td>{{ data.humidity }}</td>
+                <td>{{ data.soil_temperature }}</td>
+                <td>{{ data.soil_moisture }}</td>
+                <td>{{ data.solar_radiation }}</td>
+                <td>{{ data.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html>
