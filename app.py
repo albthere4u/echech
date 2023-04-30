@@ -12,7 +12,7 @@ app.config['SECRET_KEY'] = 'your-secret-key'  # 실제 사용 시 적절한 시�
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
