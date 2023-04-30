@@ -2,6 +2,21 @@
 <html>
 <head>
     <title>CSV 파일 업로드</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <h1>CSV 파일 업로드</h1>
@@ -43,13 +58,21 @@
             <tr>
                 <th>예측시간</th>
                 <th>온도(°C)</th>
+                <th>상태</th>
                 <th>풍향(deg)</th>
+                <th>상태</th>
                 <th>풍속(m/s)</th>
+                <th>상태</th>
                 <th>강수량(mm)</th>
+                <th>상태</th>
                 <th>기압(hPa)</th>
+                <th>상태</th>
                 <th>습도(%)</th>
+                <th>상태</th>
                 <th>토양온도(°C)</th>
+                <th>상태</th>
                 <th>토양습도(%)</th>
+                <th>상태</th>
                 <th>일사량(W/m^2)</th>
                 <th>상태</th>
             </tr>
@@ -59,15 +82,23 @@
             <tr>
                 <td>{{ data.timestamp }}</td>
                 <td>{{ data.temperature }}</td>
+                <td>{{ data.status1 }}</td>
                 <td>{{ data.wind_direction }}</td>
+                <td>{{ data.status2 }}</td>
                 <td>{{ data.wind_speed }}</td>
+                <td>{{ data.status3 }}</td>
                 <td>{{ data.rainfall }}</td>
+                <td>{{ data.status4 }}</td>
                 <td>{{ data.pressure }}</td>
+                <td>{{ data.status5 }}</td>
                 <td>{{ data.humidity }}</td>
+                <td>{{ data.status6 }}</td>
                 <td>{{ data.soil_temperature }}</td>
+                <td>{{ data.status7 }}</td>
                 <td>{{ data.soil_moisture }}</td>
+                <td>{{ data.status8 }}</td>
                 <td>{{ data.solar_radiation }}</td>
-                <td>{{ data.status }}</td>
+                <td>{{ data.status9 }}</td>
             </tr>
             {% endfor %}
         </tbody>

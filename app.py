@@ -1,5 +1,4 @@
 
-import csv
 from io import StringIO
 from flask import Flask, render_template, request
 from forms import CSVUploadForm
