@@ -23,7 +23,7 @@
     <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
         {{ form.csrf_token }}
         {{ form.csvfile.label }}: {{ form.csvfile }}
-        <input type="submit" value="Upload">
+        <input type="submit" value="check">
     </form>
     <!-- templates/upload.html -->
 

@@ -10,6 +10,10 @@ from utils import process_csv_file
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key'  # 실제 사용 시 적절한 시크릿 키로 교체해주세요.
 
+@app.route('/')
+def home():
+    return render_template('home.html')
+
 @app.route('/upload', methods=['GET', 'POST'])
 def upload():
     form = CSVUploadForm()
